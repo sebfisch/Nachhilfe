@@ -56,4 +56,4 @@ inaktive Nutzer entfernen zu können.
 
 ## Material
 
-[Grafische Darstellung der Sichten](views.jpg?raw)
+[Grafische Darstellung der Sichten](views.jpg)
