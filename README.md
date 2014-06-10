@@ -53,3 +53,7 @@ können.
 
 Nutzer sollen nach Aktivität sortiert werden können, um einfach
 inaktive Nutzer entfernen zu können.
+
+## Material
+
+[Grafische Darstellung der Sichten](views.jpg?raw)
