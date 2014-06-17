@@ -2,6 +2,7 @@ class CreateInitialModel < ActiveRecord::Migration
     def change
         create_table :users do |t|
             t.string :name
+            t.string :password 
             t.integer :class_level
             t.string :contact_info
             t.string :image_link

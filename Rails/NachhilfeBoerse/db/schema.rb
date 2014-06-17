@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 1) do
+ActiveRecord::Schema.define(version: 2) do
 
   create_table "appointments", force: true do |t|
     t.boolean "is_agreed"
@@ -42,5 +42,7 @@ ActiveRecord::Schema.define(version: 1) do
     t.date    "last_activity"
     t.boolean "is_admin"
   end
+
+  add_index "users", ["name"], name: "index_users_on_name", unique: true
 
 end
