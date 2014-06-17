@@ -1,0 +1,16 @@
+<h1>Angebot von <%= @offer.user.name %></h1>
+  
+ <%= form_for @offer do |f| %>
+  <table>
+  <colgroup>
+  <col width = "100"><col width = "400">
+   </colgroup>
+      <tr><td><%= f.label :Klassenstufe %></td><td><%= f.text_field :class_level %></td></tr>
+      <tr><td><%= f.label :Fach %></td><td><%= f.text_field :subject %></td></tr>
+      <tr><td><%= f.label :Vergütung %></td><td><%= f.text_field :pay %></td></tr>
+      <tr><td><%= f.label :Information %></td><td><%= f.text_field :info %></td></tr>
+      <tr><td><%= f.label :user_id %></td><td><%= f.text_field :user_id %></td></tr>
+      <tr><td><%= f.submit "Save" %></td></tr>
+ 
+  </table>
+  <% end %>

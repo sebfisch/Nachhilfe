@@ -47,3 +47,4 @@ ActiveRecord::Schema.define(version: 3) do
   add_index "users", ["name"], name: "index_users_on_name", unique: true
 
 end
+
