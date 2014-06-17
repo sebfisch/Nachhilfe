@@ -6,10 +6,8 @@ class User < ActiveRecord::Base
     
     validates :name,
            presence: true,
-           uniqueness: { case_sensitive: false }
+           uniqueness: { case_sensitive: true }
 
-    before_save { self.name = name.downcase }
-    
     has_secure_password
     validates :password, length: { minimum: 8 }
 end
