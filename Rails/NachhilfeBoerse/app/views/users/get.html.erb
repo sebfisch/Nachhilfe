@@ -1,0 +1,42 @@
+<h1>Hallo, <%= @user.name%></h1>
+<h2>Deine Daten:</h2>
+
+  <%= "Klasse: " +@user.class_level.to_s%></br>
+   <%= "Kontakt: " +@user.contact_info%></br>
+<h2>Eigene Angebote</h2>
+<table border=3 frame=void bgcolor=#CCFFCC>
+ <tr>
+  <th width=400>Angebote</th>
+  <th width=400>Anfragen</th>
+  <th width=200>Loeschen?</th>
+  </tr>
+  
+  <% @user.offers.each do |o| %>
+  <tr>
+  <td> <%= o.subject %>  <%= o.class_level %> </td>
+	<td> </td>
+	<td>[<%= link_to "Entfernen", offer_path(o), :method => :delete %>]</td>
+  </tr>
+	<% end %>
+
+ </table>
+<h2>Eigene Gesuche</h2>
+
+<table border=3 frame=void bgcolor=#FF9933>
+ <tr>
+  <th width=400>Fach</th>
+  <th width=400>Status</th>
+  <th width=200>Bewertung?</th>
+  <th width=200>Loeschen?</th>
+  </tr>
+  
+  <% @user.demands.each do |d| %>
+  <tr>
+  <td> <%= d.subject %>  </td>
+	<td> </td>
+	<td> </td>
+	<td>[<%= link_to "Entfernen", demand_path(d), :method => :delete %>]</td>
+  </tr>
+	<% end %>
+
+ </table>
