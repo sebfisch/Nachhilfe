@@ -1,0 +1,18 @@
+<h1>Angebot von <%= @offer.user.name %></h1>
+  <table>
+  <tr>
+      <td>Klasse: </td> <td><%= @offer.class_level %></td>
+  </tr>
+  <tr>  
+      <td>Fach: </td><td><%= @offer.subject %></td>
+  </tr>
+  <tr>
+      <td>Verguetung: </td><td><%= @offer.pay %></td>
+  </tr>
+  <tr>
+      <td>Information: </td><td><%= @offer.info %></td>
+  </tr>
+  <tr>
+       <td><%= link_to "bearbeiten", edit_offer_path(@offer) %></td>  
+  </tr>
+  </table>
