@@ -1,0 +1,43 @@
+Projekt "aus-checken" und Server starten
+
+  * git clone <SSH clone URL>
+    * falls schon ausgecheckt: git pull
+  * cd Nachhilfe/Rails/Nachhilfeboerse
+  * bundle install
+  * bundle exec rake db:migrate
+  * rails server
+
+Gegebenenfalls Modell erweitern
+
+  * Wo liegen Migrationen und wie heißen sie?
+  * Wie legt man neue Tabellen an?
+  * Wie erweitert man existierende Tabellen?
+
+Route anlegen
+
+  * In welcher Datei werden Routen angelegt?
+  * Was muss zur Definition angegeben werden?
+  * Wie ist die Namenskonvention zum Verweis auf Controller und Methode?
+  * Wie gibt man einer Route einen (anderen) Namen?
+
+Controller definieren
+
+  * In welchem Verzeichnis?
+  * Mit welchem Namen? (Dateiname? Klassenname?)
+  * Methode mit bei Route gewähltem Namen definieren
+
+View definieren
+
+  * In welchem Verzeichnis?
+  * Namenskonvention: Controller-Methode <-> View-Datei ?
+
+Änderungen hochladen
+
+  * git status		# gucken, was geändert ist
+  * git diff		# genauer gucken, was geändert ist
+
+  * git add <Dateien, die hochgeladen werden sollen>
+  * git commit -m "<Beschreibung der Änderungen>"
+
+  * git pull 		# aktuelle Version runterladen
+  * git push		# für alle sichtbar hochladen
