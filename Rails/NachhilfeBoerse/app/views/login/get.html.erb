@@ -1,5 +1,6 @@
-<H1>LOGIN</H1>
+<H1 align="center">LOGIN</H1>
 
+<center>
 <%= form_for :login do |f| %>
     <%= f.label :name, "Benutzername" %>
     <%= f.text_field :name %>
@@ -9,3 +10,4 @@
     <br/>
     <%= f.submit "Login" %>
 <% end %>
+</center>
