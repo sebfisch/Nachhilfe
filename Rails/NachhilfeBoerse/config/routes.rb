@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   post "login" => "login#post"
   
   get "demands/new" => "demands#get"
-  #post "demands/new" => "demands#post"
 
   post "results" => "results#post"
 
