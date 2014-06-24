@@ -1,4 +1,8 @@
 module LoginHelper
+  def signed_in?
+    return (current_user != nil)
+  end
+  
   def sign_in(user)
     remember_token = User.new_remember_token
     cookies.permanent[:remember_token] = remember_token
