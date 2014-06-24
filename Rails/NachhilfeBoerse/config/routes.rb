@@ -2,6 +2,11 @@ Rails.application.routes.draw do
 
   
   get "users/:id" => "users#get", :as => :users
+  get "users/:id/edit" => "users#edit", :as => :edit_user
+  patch "users/:id" => "users#patch"
+
+
+
   delete "users/:id" => "users#delete_user"
   delete "offers/:id" => "users#delete_offer"
   delete "demand/:id" => "users#delete_demand", :as => :demand
@@ -15,7 +20,7 @@ Rails.application.routes.draw do
 
   get "login" => "login#get", :as=>:logins
   post "login" => "login#post"
-  
+  delete "logout" => "login#destroy"
 
   get "admin" => "admin#get"
   post "admin" => "admin#post"
