@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   get "users/:id" => "users#get", :as => :users
   get "users/:id/edit" => "users#edit", :as => :edit_user
+  get "users/:id/new_offer" => "users#new_offer", :as => :new_offer
   patch "users/:id" => "users#patch"
 
 
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
   get "admin" => "admin#get"
   post "admin" => "admin#post"
 
-  get "demands/new" => "demands#get"
+  get "demands/new" => "demands#get", :as=>:new_demand
   post "results" => "results#post"
 
 
