@@ -31,8 +31,14 @@ class UsersController < ApplicationController
 	end
 	
 	def patch
-		@user = @user = User.find(params[:id])
+		@user = User.find(params[:id])
 		save
+	end
+	
+	def delete_user
+	  user = User.find(params[:id])
+	  user.destroy
+	  redirect_to admin_path
 	end
 	
 	private
@@ -41,12 +47,6 @@ class UsersController < ApplicationController
 		@user.update_attribute(:class_level, params[:user][:class_level])
 		@user.update_attribute(:contact_info, params[:user][:contact_info])
 		redirect_to users_path(@user)
-	end
-	
-	def delete_user
-	  user = User.find(params[:id])
-	  user.destroy
-	  redirect_to admin_path
 	end
 
 end
