@@ -17,6 +17,14 @@ class UsersController < ApplicationController
 		redirect_to users_path(user)
 	end
 	
+	def new_offer
+		@user = User.find(params[:id])
+		offer = Offer.new
+		offer.user=@user
+		offer.save
+		redirect_to edit_offer_path(offer)
+
+	end
 
 	def edit
 		@user = User.find(params[:id])
