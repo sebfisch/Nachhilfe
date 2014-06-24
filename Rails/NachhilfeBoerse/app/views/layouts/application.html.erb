@@ -56,11 +56,7 @@
 <div id="steuerung">
 <p>Start  |   
   <% if current_user then %>
-<<<<<<< HEAD
-    <%= link_to "Profil", users_path(current_user) %>  | 
-=======
   <%= link_to "Profil", users_path(current_user) %>  | 
->>>>>>> 1101927d4b7638fd27ec86eaee72684767ac4bc9
   <% end %>
   <%= link_to "Admin", admin_path %>  |   <%= link_to "Login", logins_path %>  |  
   <%= link_to "Logout", logout_path, :method => :delete %></p>
