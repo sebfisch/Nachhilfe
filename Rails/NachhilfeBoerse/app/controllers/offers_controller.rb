@@ -20,9 +20,7 @@ class OffersController < ApplicationController
       offer.subject = params[:offer][:subject]
       offer.pay = params[:offer][:pay]
       offer.info = params[:offer][:info]
-      user = User.find(params[:offer][:user_id])
-      offer.user = user
       offer.save
-      redirect_to users_path(user)
+      redirect_to users_path(offer.user)
     end
 end

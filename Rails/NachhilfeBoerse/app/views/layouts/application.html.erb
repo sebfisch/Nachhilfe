@@ -54,7 +54,10 @@
 </div>
 
 <div id="steuerung">
-<p>Start  |   <%= link_to "Profil", users_path(2) %>  | 
+<p>Start  |   
+  <% if current_user then %>
+  <%= link_to "Profil", users_path(current_user) %>  | 
+  <% end %>
   <%= link_to "Admin", admin_path %>  |   <%= link_to "Login", logins_path %>  |  
   <%= link_to "Logout", logout_path, :method => :delete %></p>
 </div>
