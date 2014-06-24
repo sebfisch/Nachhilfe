@@ -1,13 +1,18 @@
 <H1 align="center">LOGIN</H1>
 
 <center>
+
+<br/>
+<br/>
+
+
 <%= form_for :login, url: logins_path do |f| %>
-    <%= f.label :name, "Benutzername" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :size=>"30", :maxlength=>"30", :placeholder=>"Benutzername" %>
     <br/>
-    <%= f.label :password, "Passwort" %>
-    <%= f.password_field :password %>
+	<br/>
+    <%= f.text_field :password, :type=>"password", :size=>"30", :maxlength=>"40", :placeholder=>"Passwort" %>
     <br/>
-    <%= f.submit "Login" %>
+	<br/>
+    <%= f.submit "           Login           " %>
 <% end %>
 </center>
