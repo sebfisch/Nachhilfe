@@ -16,7 +16,12 @@ Rails.application.routes.draw do
   get "login" => "login#get", :as=>:logins
   post "login" => "login#post"
   
+
   get "admin" => "admin#get"
   post "admin" => "admin#post"
+
+  get "demands/new" => "demands#get"
+  post "results" => "results#post"
+
 
 end
