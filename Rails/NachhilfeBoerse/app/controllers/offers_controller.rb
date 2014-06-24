@@ -1,7 +1,8 @@
 class OffersController < ApplicationController
             
     def get
-      @offer = Offer.find(params[:id])          
+      @offer = Offer.find(params[:id])
+      #@offer = Offer.new
     end
    
     def edit
@@ -11,6 +12,8 @@ class OffersController < ApplicationController
     def patch
       save(Offer.find(params[:id])) 
     end
+
+    
     
      private
      
