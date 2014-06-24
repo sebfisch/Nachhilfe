@@ -57,13 +57,15 @@
 </div>
 
 <div id="steuerung">
-<p>Start  |   <%= link_to "Profil", users_path(2) %>  |   <%= link_to "Admin", admin_path %>  |   <%= link_to "Login", logins_path %>  |   <%= link_to "Logout", logout_path %></p>
+<p>Start  |   <%= link_to "Profil", users_path(2) %>  | 
+  <%= link_to "Admin", admin_path %>  |   <%= link_to "Login", logins_path %>  |  
+  <%= link_to "Logout", logout_path, :method => :delete %></p>
 </div>
 
 <div id="content">
-
+<%= yield %>
 </div>
 
-<%= yield %>
+
 </body>
 </html>
