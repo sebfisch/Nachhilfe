@@ -1,42 +1,59 @@
 <h1>Hallo, <%= @user.name%></h1>
-<h2>Deine Daten:</h2>
 
-  <%= "Klasse: " +@user.class_level.to_s%></br>
-   <%= "Kontakt: " +@user.contact_info.to_s%></br>
-<h2>Eigene Angebote</h2>
-<table border=3 frame=void bgcolor=#CCFFCC>
- <tr>
-  <th width=400>Angebote</th>
-  <th width=400>Anfragen</th>
-  <th width=200>Loeschen?</th>
-  </tr>
-  
-  <% @user.offers.each do |o| %>
+ <h2>Deine Daten:</h2>
+
+  <%= "Klasse: " + @user.class_level.to_s%> </br>
+  <%= "Kontakt: " + @user.contact_info.to_s%> </br>
+  <%= link_to "Daten bearbeiten", edit_user_path(@user) %> 
+
+
+ <h2>Eigene Angebote</h2>
+
+   <table border=3 frame=void bgcolor=#CCFFFF>
+    <tr>
+     <th width=400>Angebote</th>
+     <th width=400>Anfragen</th>
+     <th width=200>Loeschen?</th>
+   </tr>
+     <% @user.offers.each do |o| %>
+   <tr>
+    <td> <%= link_to(o.subject + " " + o.class_level.to_s, offer_path, :method => :get) %> </td>
+    <td> <%= link_to "Anfragen anzeigen" %> </td>
+    <td><%= link_to "Entfernen", offer_path(o), :method => :delete %></td>
+   </tr>
+     <% end %>
+   </table>
+
+<%= link_to("Neues Angebot anlegen") %> 
+
+ <h2>Eigene Gesuche</h2>
+
+ <table border=3 frame=void bgcolor=#CCFFFF>
   <tr>
-  <td> <%= o.subject %>  <%= o.class_level %> </td>
-	<td> </td>
-	<td>[<%= link_to "Entfernen", offer_path(o), :method => :delete %>]</td>
+   <th width=400>Fach</th>
+   <th width=400>Status</th>
+   <th width=200>Bewertung?</th>
+   <th width=200>Loeschen?</th>
   </tr>
-	<% end %>
-
- </table>
-<h2>Eigene Gesuche</h2>
-
-<table border=3 frame=void bgcolor=#FF9933>
- <tr>
-  <th width=400>Fach</th>
-  <th width=400>Status</th>
-  <th width=200>Bewertung?</th>
-  <th width=200>Loeschen?</th>
-  </tr>
-  
-  <% @user.demands.each do |d| %>
+   <% @user.demands.each do |d| %>
   <tr>
   <td> <%= d.subject %>  </td>
-	<td> </td>
-	<td> </td>
-	<td>[<%= link_to "Entfernen", demand_path(d), :method => :delete %>]</td>
-  </tr>
-	<% end %>
-
+  <td> </td>
+  <td>
+   <form action="input_button.htm">
+    <div>
+     <button name="like_button" type="button">
+      <p>
+       <img src="/home/christine/Informatik/Nachhilfe/Rails/NachhilfeBoerse/app/views/users/like.jpg" width="50" hight="50" alt="like" input type="button"  
+       onclick=>
+      </p>
+     </button>
+   </div>
+  </form>
+ </td>
+ <td>[<%= link_to "Entfernen", demand_path(d), :method => :delete %>]</td>
+ </tr>
+  <% end %>
  </table>
+ 
+ <%= link_to("Neues Gesuch anlegen") %> 
