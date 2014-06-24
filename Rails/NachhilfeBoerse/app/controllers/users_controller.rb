@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 	def get
 		@user = User.find(params[:id])
+		#offer = Offer.find(params[:user_id])
+		#appointment = Appointment.find(params[:offer_id])
 	end
 	
 	def delete_offer

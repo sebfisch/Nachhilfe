@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 4) do
+ActiveRecord::Schema.define(version: 5) do
 
   create_table "appointments", force: true do |t|
     t.boolean "is_agreed"
-    t.boolean "is_positive"
     t.integer "user_id"
     t.integer "offer_id"
   end
@@ -44,6 +43,7 @@ ActiveRecord::Schema.define(version: 4) do
     t.boolean "is_admin"
     t.string  "password_digest"
     t.string  "remember_token"
+    t.integer "likes"
   end
 
   add_index "users", ["name"], name: "index_users_on_name", unique: true

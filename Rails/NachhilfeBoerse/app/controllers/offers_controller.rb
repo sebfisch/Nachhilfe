@@ -2,7 +2,7 @@ class OffersController < ApplicationController
             
     def get
       @offer = Offer.find(params[:id])
-      #@offer = Offer.new
+
     end
    
     def edit
