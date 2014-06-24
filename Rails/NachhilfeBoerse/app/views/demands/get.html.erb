@@ -1,0 +1,11 @@
+<h1>Suche Nachhilfe</h1>
+
+<%= form_for :demand, url: results_path do |f| %>
+    <%= f.label :Fach, "Fach" %>
+    <%= f.text_field :subject %>
+    <br/>
+    <%= f.label :Klassenstufe, "Klassenstufe" %>
+    <%= f.text_field :class_level %>
+    <br/>
+    <%= f.submit "Anzeigen" %>
+<% end %>
