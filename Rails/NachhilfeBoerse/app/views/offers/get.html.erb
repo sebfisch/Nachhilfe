@@ -12,7 +12,8 @@
   <tr>
       <td>Information: </td><td><%= @offer.info %></td>
   </tr>
-  <tr>
+  <tr><% if current_user == @offer.user then %>
        <td><%= link_to "bearbeiten", edit_offer_path(@offer) %></td>  
+      <% end %>
   </tr>
   </table>
