@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   get "admin" => "admin#get"
   post "admin" => "admin#post"
+  patch "admin/:id" => "admin#change_admin_status", :as => :change_admin_status
 
   get "demands/new" => "demands#get", :as=>:new_demand
   post "results" => "results#post"

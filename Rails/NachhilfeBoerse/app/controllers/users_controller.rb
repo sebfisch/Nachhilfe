@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 	def get
 		@user = User.find(params[:id])
+		#offer = Offer.find(params[:user_id])
+		#appointment = Appointment.find(params[:offer_id])
 	end
 	
 	def delete_offer
@@ -31,8 +33,14 @@ class UsersController < ApplicationController
 	end
 	
 	def patch
-		@user = @user = User.find(params[:id])
+		@user = User.find(params[:id])
 		save
+	end
+	
+	def delete_user
+	  user = User.find(params[:id])
+	  user.destroy
+	  redirect_to admin_path
 	end
 	
 	private
@@ -43,6 +51,7 @@ class UsersController < ApplicationController
 		@user.update_attribute(:contact_info, params[:user][:contact_info])
 		redirect_to users_path(@user)
 	end
+<<<<<<< HEAD
   
 	
 	def delete_user
@@ -50,5 +59,7 @@ class UsersController < ApplicationController
 	  user.destroy
 	  redirect_to admin_path
 	end
+=======
+>>>>>>> 1101927d4b7638fd27ec86eaee72684767ac4bc9
 
 end
