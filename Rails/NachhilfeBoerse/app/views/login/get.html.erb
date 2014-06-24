@@ -1,7 +1,7 @@
 <H1 align="center">LOGIN</H1>
 
 <center>
-<%= form_for :login do |f| %>
+<%= form_for :login, url: logins_path do |f| %>
     <%= f.label :name, "Benutzername" %>
     <%= f.text_field :name %>
     <br/>
