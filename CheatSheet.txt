@@ -5,6 +5,7 @@ Projekt "aus-checken" und Server starten
   * cd Nachhilfe/Rails/Nachhilfeboerse
   * bundle install
   * bundle exec rake db:migrate
+  * bundle exec rake db:seed
   * rails server
 
 Gegebenenfalls Modell erweitern
