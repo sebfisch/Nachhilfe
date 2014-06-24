@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<span>
 <marquee behavior=alternate, scrolldelay=5, bgcolor="ffff00", fontcolor="0000aa", blink>
 Finde die für Dich passende Nachhilfe an Deiner Schule oder biete Dein Fachwissen als Nachhilfe für andere Schülerinnen und Schüler an! 
 </marquee>
@@ -15,11 +15,11 @@ Finde die für Dich passende Nachhilfe an Deiner Schule oder biete Dein Fachwiss
 
 <table align="center", bgcolor="5555FF">
 	<tr>
-		<td>Start</td>
-		<td>Profil</td>
-		<td>Admin</td>
-		<td>Login</td>
-		<td>Logout</td>
+		<td> "Start" </td>
+		<td> "Profil" </td>
+		<td> "Admin" </td>
+		<td> "Login" </td>
+		<td> <%= link_to "Logout", logout_path, :method => :delete %> </td>
 	</tr>	
 </table>
 

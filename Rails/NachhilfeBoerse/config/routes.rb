@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   get "login" => "login#get", :as=>:logins
   post "login" => "login#post"
-  
+  delete "logout" => "login#destroy"
 
   get "admin" => "admin#get"
   post "admin" => "admin#post"
