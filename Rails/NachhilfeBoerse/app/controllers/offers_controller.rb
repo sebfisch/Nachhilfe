@@ -11,9 +11,7 @@ class OffersController < ApplicationController
      
     def patch
       save(Offer.find(params[:id])) 
-    end
-
-    
+    end    
     
      private
      
