@@ -7,6 +7,9 @@ module LoginHelper
   
   def current_user
     token = User.digest(cookies[:remember_token])
+	date = DateTime.now
+	user = User.find_by(remember_token: token)
+	user.update_attribute(:last_activity, date)
     return User.find_by(remember_token: token)
   end
   
