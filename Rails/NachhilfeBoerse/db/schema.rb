@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 4) do
 
   create_table "users", force: true do |t|
     t.string  "name"
-    t.string  "password"
     t.integer "class_level"
     t.string  "contact_info"
     t.string  "image_link"
@@ -50,4 +49,3 @@ ActiveRecord::Schema.define(version: 4) do
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end
-
