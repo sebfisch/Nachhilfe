@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 3) do
 
   create_table "users", force: true do |t|
     t.string  "name"
-    t.string  "password"
     t.integer "class_level"
     t.string  "contact_info"
     t.string  "image_link"

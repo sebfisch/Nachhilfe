@@ -13,15 +13,16 @@ Finde die für Dich passende Nachhilfe an Deiner Schule oder biete Dein Fachwiss
 </marquee>
 </span>
 
-<table align="center", bgcolor="5555FF">
-	<tr>
-		<td>Start</td>
-		<td>Profil</td>
-		<td>Admin</td>
-		<td>Login</td>
-		<td>Logout</td>
-	</tr>	
+<table align="left", bgcolor="D1EEEE", width = "400" >
+	<tr><br>
+		<td align="center"><%= link_to "Profil", users_path(1) %></td>
+    <td align="center"><%= link_to "Login", logins_path %></td>
+    <td align="center"><%= link_to "Admin", admin_path %></td>
+		<td align="center"><%= link_to "Logout", logout_path %></td>
+  </tr>	
 </table>
+  <br>
+  <br>
 
 <%= yield %>
 </body>
