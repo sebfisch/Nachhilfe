@@ -51,15 +51,6 @@ class UsersController < ApplicationController
 		@user.update_attribute(:contact_info, params[:user][:contact_info])
 		redirect_to users_path(@user)
 	end
-<<<<<<< HEAD
-  
-	
-	def delete_user
-	  user = User.find(params[:id])
-	  user.destroy
-	  redirect_to admin_path
-	end
-=======
->>>>>>> 1101927d4b7638fd27ec86eaee72684767ac4bc9
+
 
 end
