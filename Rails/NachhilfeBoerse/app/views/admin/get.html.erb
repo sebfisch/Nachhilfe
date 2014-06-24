@@ -1,6 +1,11 @@
 ﻿<h1>Administration</h1>
 
-<h2>Benutzer</h2>
+<% if not @is_admin then %>
+
+  <p>Diese Seite kann nur von Administratoren aufgerufen werden</p>
+  <%= link_to "weiter", users_path(@actual_user) %>
+<% else %>
+  <h2>Benutzer</h2>
   <table>
 	  <tr>
 	  	<th>Admin</th>
@@ -9,6 +14,7 @@
 		<th>Kontakt-Infos</th>
 		<th>letzte Aktivität</th>
 		<th>löschen</th>
+		<th>Admin-Status ändern</th>
 		<th>editieren</th>
 	  </tr>
 	  
@@ -23,20 +29,31 @@
 		  <td><%= user.contact_info %></td>
 		  <td><%= user.last_activity %></td>
           <td>
-		    <%= link_to "delete", users_path(user), :method => :delete %>
+		    <% if user.id != 1 then %>
+		      <%= link_to "delete", users_path(user), :method => :delete %>
+			<% end %>   
 		  </td>
+		  <td>
+		    <% if user.id != 1 then %>
+		      <%= link_to "change", change_admin_status_path(user), :method => :patch %>
+			<% end %> 
+		  </td>
+		  <td>
+		    <%= link_to "edit", users_path(user) %>
+		  </td>
+		  	  
         </tr>
        <% end %>	  
 	</table>
 
+  <h2>Benutzer neu anlegen</h2>
 
-<h2>Benutzer neu anlegen</h2>
-
-<%= form_for @new_user, :url => admin_path do |f| %>
+  <%= form_for @new_user, :url => admin_path do |f| %>
 	<%= f.label :name %> <%= f.text_field :name %>
 	</br>
 	<%= f.label :password %> <%= f.text_field :password %>
 	</br>
 	<%= f.submit "Save" %>
-<% end %>
+  <% end %>
 
+<% end %>

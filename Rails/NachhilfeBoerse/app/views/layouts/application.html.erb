@@ -1,28 +1,66 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="de">
+
 <head>
-  <title>NachhilfeBoerse</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<title>Deine Nachhilfeboerse</title>
+<meta charset="UTF-8" />
+
+<style type="text/css">
+<!--
+* {
+  margin:0;
+  padding:0;
+}
+
+
+#kopfbereich {
+  background-image:url("/hintergrundalle.jpg");
+  height:175px;
+}
+
+#kopfbereich p {
+  font-size:4em;
+  text-align:center;
+  color:red;
+  padding:.8em 0 0 0;
+}
+
+#steuerung {
+  background-color:black;
+  text-align:center;
+}
+
+#steuerung p {
+  font-size:1.2em;
+  color:white;
+}
+
+#content {
+  height:20px;
+  background-color:white
+}
+-->
+</style>
+
 </head>
 <body>
-<span>
-<marquee behavior=alternate, scrolldelay=5, bgcolor="ffff00", fontcolor="0000aa", blink>
-Finde die für Dich passende Nachhilfe an Deiner Schule oder biete Dein Fachwissen als Nachhilfe für andere Schülerinnen und Schüler an! 
-</marquee>
-</span>
 
-<table align="center", bgcolor="5555FF">
-	<tr>
-		<td> "Start" </td>
-		<td> "Profil" </td>
-		<td> "Admin" </td>
-		<td> "Login" </td>
-		<td> <%= link_to "Logout", logout_path, :method => :delete %> </td>
-	</tr>	
-</table>
 
+<div id="kopfbereich">
+<p>Deine Nachhilfebörse</p>
+</div>
+
+<div id="steuerung">
+<p>Start  |   <%= link_to "Profil", users_path(2) %>  | 
+  <%= link_to "Admin", admin_path %>  |   <%= link_to "Login", logins_path %>  |  
+  <%= link_to "Logout", logout_path, :method => :delete %></p>
+</div>
+
+<div id="content">
 <%= yield %>
+</div>
+
+
 </body>
 </html>
