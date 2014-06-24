@@ -16,6 +16,13 @@ ActiveRecord::Schema.define(version: 5) do
 
   create_table "appointments", force: true do |t|
     t.boolean "is_agreed"
+
+ActiveRecord::Schema.define(version: 4) do
+
+  create_table "appointments", force: true do |t|
+    t.boolean "is_agreed"
+    t.boolean "is_positive"
+
     t.integer "user_id"
     t.integer "offer_id"
   end
@@ -35,6 +42,7 @@ ActiveRecord::Schema.define(version: 5) do
   end
 
   create_table "users", force: true do |t|
+
     t.string  "name"
     t.string  "password"
     t.integer "class_level"
@@ -89,6 +97,22 @@ ActiveRecord::Schema.define(version: 4) do
   end
 
   create_table "users", force: true do |t|
+    t.string  "name"
+    t.integer "class_level"
+    t.string  "contact_info"
+    t.string  "image_link"
+    t.date    "last_activity"
+    t.boolean "is_admin"
+    t.string  "password_digest"
+    t.string  "remember_token"
+  end
+
+  add_index "users", ["name"], name: "index_users_on_name", unique: true
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+
+end
+
+
     t.string  "name"
     t.integer "class_level"
     t.string  "contact_info"
