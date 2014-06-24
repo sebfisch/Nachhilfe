@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-
+  
   get "users/:id" => "users#get", :as => :users
-
+  delete "users/:id" => "users#delete_user"
   delete "offers/:id" => "users#delete_offer"
   delete "demand/:id" => "users#delete_demand", :as => :demand
 
@@ -16,5 +16,12 @@ Rails.application.routes.draw do
   get "login" => "login#get", :as=>:logins
   post "login" => "login#post"
   
+
+  get "admin" => "admin#get"
+  post "admin" => "admin#post"
+
+  get "demands/new" => "demands#get"
+  post "results" => "results#post"
+
 
 end

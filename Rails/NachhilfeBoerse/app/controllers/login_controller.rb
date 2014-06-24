@@ -8,7 +8,7 @@ class LoginController < ApplicationController
     password = params[:login][:password]
     
     if user!=nil && user.authenticate(password) then 
-      redirect_to user_path(user)
+      redirect_to users_path(user)
     else
       render :get
     end

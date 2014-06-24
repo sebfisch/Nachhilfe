@@ -1,0 +1,42 @@
+﻿<h1>Administration</h1>
+
+<h2>Benutzer</h2>
+  <table>
+	  <tr>
+	  	<th>Admin</th>
+		<th>Name</th>
+		<th>Klassenstufe</th>
+		<th>Kontakt-Infos</th>
+		<th>letzte Aktivität</th>
+		<th>löschen</th>
+		<th>editieren</th>
+	  </tr>
+	  
+	    <% @users.each do |user| %>
+		<tr>
+	      <td><% if user.is_admin then%>
+			    <%= "ADMIN" %>
+			  <% end %>
+		  </td>
+		  <td><%= user.name  %></td>
+		  <td><%= user.class_level %></td>
+		  <td><%= user.contact_info %></td>
+		  <td><%= user.last_activity %></td>
+          <td>
+		    <%= link_to "delete", users_path(user), :method => :delete %>
+		  </td>
+        </tr>
+       <% end %>	  
+	</table>
+
+
+<h2>Benutzer neu anlegen</h2>
+
+<%= form_for @new_user, :url => admin_path do |f| %>
+	<%= f.label :name %> <%= f.text_field :name %>
+	</br>
+	<%= f.label :password %> <%= f.text_field :password %>
+	</br>
+	<%= f.submit "Save" %>
+<% end %>
+

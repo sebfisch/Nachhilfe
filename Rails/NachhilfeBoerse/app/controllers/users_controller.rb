@@ -17,4 +17,10 @@ class UsersController < ApplicationController
 		demand.destroy
 		redirect_to users_path(user)
 	end
+	
+	def delete_user
+	  user = User.find(params[:id])
+	  user.destroy
+	  redirect_to admin_path
+	end
 end
