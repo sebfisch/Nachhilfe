@@ -7,10 +7,10 @@
 
 
 <%= form_for :login, url: logins_path do |f| %>
-    <%= f.text_field :name, :size=>"30", :maxlength=>"30", :value=>"Benutzername", :onFocus=>"if(this.value=='Benutzername') this.value=''", :onBlur=>"if(this.value=='') this.value='Benutzername'" %>
+    <%= f.text_field :name, :size=>"30", :maxlength=>"30", :placeholder=>"Benutzername" %>
     <br/>
 	<br/>
-    <%= f.text_field :password, :size=>"30", :maxlength=>"40", :value=>"Passwort", :onFocus=>"if(this.value=='Passwort') this.value=''", :onBlur=>"if(this.value=='') this.value='Passwort'" %>
+    <%= f.text_field :password, :type=>"password", :size=>"30", :maxlength=>"40", :placeholder=>"Passwort" %>
     <br/>
 	<br/>
     <%= f.submit "           Login           " %>
