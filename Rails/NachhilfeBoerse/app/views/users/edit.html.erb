@@ -1,0 +1,13 @@
+<h2> Deinen Daten bearbeiten</h2>
+<%= @user.name%>
+<%= form_for @user, :url => users_path do |u| %>
+<%= u.label :Klassenstufe %>:<%= u.text_field :class_level %></br>
+<%= u.label :Kontaktdaten %>:<%= u.text_field :contact_info %></br>
+<%= u.submit "Speichern" %>
+
+<ul>
+<% @user.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+<% end %>

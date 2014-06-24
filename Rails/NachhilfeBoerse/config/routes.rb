@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
 
   get "users/:id" => "users#get", :as => :users
+  get "users/:id/edit" => "users#edit", :as => :edit_user
+  #post "users/:id" => "users#post"
+  patch "users/:id" => "users#patch"
+
 
   delete "offers/:id" => "users#delete_offer"
   delete "demand/:id" => "users#delete_demand", :as => :demand
