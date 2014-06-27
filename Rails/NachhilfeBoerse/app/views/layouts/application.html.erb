@@ -55,11 +55,21 @@
 
 <div id="steuerung">
 <p>Start  |   
+  <%= link_to "Suche", new_demand_path %> | 
   <% if current_user then %>
-  <%= link_to "Profil", users_path(current_user) %>  | 
+    <%= link_to "Profil", users_path(current_user) %>  | 
   <% end %>
-  <%= link_to "Admin", admin_path %>  |   <%= link_to "Login", logins_path %>  |  
-  <%= link_to "Logout", logout_path, :method => :delete %></p>
+  <% if signed_in? then %>
+    <% if current_user.is_admin then %>
+      <%= link_to "Admin", admin_path %>  |
+    <% end %>
+  <% end %>  
+  <%if !signed_in? then %>
+    <%= link_to "Login", logins_path %>  |  
+  <% end %>
+  <%if signed_in? then %>
+    <%= link_to "Logout", logout_path, :method => :delete %></p>
+  <% end %>
 </div>
 
 <div id="content">

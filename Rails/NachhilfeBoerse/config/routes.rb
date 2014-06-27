@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
  
+  root :to => "demands#get" #Startseite
+
   get "users/:id" => "users#get", :as => :users
   get "users/:id/edit" => "users#edit", :as => :edit_user
   get "users/:id/new_offer" => "users#new_offer", :as => :new_offer
