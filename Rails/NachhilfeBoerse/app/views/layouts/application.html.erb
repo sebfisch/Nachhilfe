@@ -68,7 +68,8 @@
     <%= link_to "Login", logins_path %>  |  
   <% end %>
   <%if signed_in? then %>
-    <%= link_to "Logout", logout_path, :method => :delete %></p>
+    <% linktext = "Logout " + current_user.name %>
+    <%= link_to linktext, logout_path, :method => :delete %></p>
   <% end %>
 </div>
 

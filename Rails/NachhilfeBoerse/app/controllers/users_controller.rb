@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 	def get
-		@user = User.find(params[:id])
+		if signed_in? then
+			@user = User.find(params[:id])
+		end
 		#offer = Offer.find(params[:user_id])
 		#appointment = Appointment.find(params[:offer_id])
 	end
@@ -46,7 +48,6 @@ class UsersController < ApplicationController
 	private
 	
 	def save
- 
 		@user.update_attribute(:class_level, params[:user][:class_level])
 		@user.update_attribute(:contact_info, params[:user][:contact_info])
 		redirect_to users_path(@user)

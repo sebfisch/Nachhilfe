@@ -9,7 +9,9 @@
       <tr><td><%= f.label :Fach %></td><td><%= f.text_field :subject %></td></tr>
       <tr><td><%= f.label :Vergütung %></td><td><%= f.text_field :pay %></td></tr>
       <tr><td><%= f.label :Information %></td><td><%= f.text_field :info %></td></tr>
-      <tr><td><%= f.submit "Save" %></td></tr>
+      <% if signed_in? then %>
+        <tr><td><%= f.submit "Save" %></td></tr>
+      <% end %>
  
   </table>
   <% end %>

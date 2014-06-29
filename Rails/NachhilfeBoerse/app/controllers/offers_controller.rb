@@ -10,7 +10,9 @@ class OffersController < ApplicationController
     end
      
     def patch
-      save(Offer.find(params[:id])) 
+      if signed_in? then
+        save(Offer.find(params[:id])) 
+      end
     end    
     
      private
