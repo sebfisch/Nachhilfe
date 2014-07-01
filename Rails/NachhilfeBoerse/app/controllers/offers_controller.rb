@@ -1,9 +1,13 @@
 class OffersController < ApplicationController
             
     def get
-      @offer = Offer.find(params[:id])
-
-    end
+      @offer = Offer.find_by_id(params[:id])
+      
+	  if @offer == nil 
+		redirect_to root_path 
+	  end  
+	  
+	end
    
     def edit
       @offer = Offer.find(params[:id])          
