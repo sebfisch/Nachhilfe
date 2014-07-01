@@ -1,5 +1,5 @@
 <br/>
-	<br/>
+
 <h1 align="center">Suche Nachhilfe</h1>
 
 <center>
@@ -15,9 +15,9 @@
     <br/>
 	<br/>
 	<% if signed_in? then %>
-    	<%= f.submit "Anzeigen und Abspeichern" %>
+    	<%= f.submit "Anzeigen und Abspeichern", :style=> "width: 168px; height: 25px" %>
     <% else %>
-    	<%= f.submit "Anzeigen" %>
+    	<%= f.submit "Anzeigen", :style=> "width: 168px; height: 25px"  %>
     <% end %>
 <% end %>
 
