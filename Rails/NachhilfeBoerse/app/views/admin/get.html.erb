@@ -3,7 +3,7 @@
 <% if not @is_admin then %>
 
   <p>Diese Seite kann nur von Administratoren aufgerufen werden</p>
-  <%= link_to "weiter", users_path(@actual_user) %>
+  <%= link_to "weiter", root_path %>
 <% else %>
   <h2>Benutzer</h2>
   <table>
