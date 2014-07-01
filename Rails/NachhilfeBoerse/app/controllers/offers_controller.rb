@@ -48,7 +48,7 @@ class OffersController < ApplicationController
 	
     def redirect_to_login
 	  @offer = Offer.find_by_id(params[:id])
-      if @offer.user != current_user or !@offer.user.is_admin then
+      if  @offer.user != current_user and !@offer.user.is_admin then
         redirect_to login_path
       end
     end
