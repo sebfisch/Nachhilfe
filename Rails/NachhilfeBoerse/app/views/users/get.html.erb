@@ -1,36 +1,37 @@
-<% if signed_in? && (current_user.id == @user.id || current_user.is_admin) then %>
-<!-- Folgendes darf nur angezeigt werden, wenn Rechte vorhanden sind. -->
-  <h1>Hallo, <%= @user.name%></h1>
+<h1>Daten von <%= @user.name%></h1>
 
-  <h2>Deine Daten:</h2>
+<%= "Klasse: " + @user.class_level.to_s%> </br>
+<%= "Kontakt: " + @user.contact_info.to_s%> </br>
+<%= "Bewertung: " + @user.likes.to_s%> </br>
 
-  <%= "Klasse: " + @user.class_level.to_s%> </br>
-  <%= "Kontakt: " + @user.contact_info.to_s%> </br>
-  <%= "Bewertung: " + @user.likes.to_s%> </br>
+<% if @allowed then %>
   <%= link_to "Daten bearbeiten", edit_user_path(@user) %> 
+<% end %>
 
+<h2>Angebote</h2>
 
-  <h2>Eigene Angebote</h2>
-
-  <table border=3 frame=void bgcolor=#CCFFFF>
-    <tr>
-      <th>Angebote</th>
-      <th>Anfragen</th>
-      <th>Loeschen?</th>
-    </tr>
-     <% @user.offers.each do |o| %>
-    <tr>
+<table border=3 frame=void bgcolor=#CCFFFF>
+  <tr>
+    <th>Angebote</th>
+	<% if @allowed then %>
+	<th>Anfragen</th>
+    <th>Loeschen?</th>
+	<% end %>
+  </tr>
+   <% @user.offers.each do |o| %>
+  <tr>
       <td> <%= link_to(o.subject.to_s + ", Klasse " + o.class_level.to_s, offer_path(o.id)) %> </td>
-      <td> <%= link_to "Anfragen anzeigen" %> </td>
-      <td><%= link_to "Entfernen", offer_path(o), :method => :delete %></td>
+      <% if @allowed then %>
+	    <td> <%= link_to "Anfragen anzeigen" %> </td>
+        <td><%= link_to "Entfernen", offer_path(o), :method => :delete %></td>
+	  <% end %>
+	  
     </tr>
      <% end %>
   </table>
-
+<% if @allowed then %>
   <%= link_to("Neues Angebot anlegen", new_offer_path(@user))%> 
-
   <h2>Eigene Gesuche</h2>
-
   <table border=3 frame=void bgcolor=#CCFFFF>
     <tr>
       <th>Fach</th>
@@ -68,4 +69,5 @@
   <% end %>
 
   </table>
-<% end %>
+<% end %> 
+
