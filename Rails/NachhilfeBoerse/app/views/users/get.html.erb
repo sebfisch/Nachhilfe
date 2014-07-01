@@ -1,19 +1,32 @@
+<<<<<<< HEAD
 ﻿<h1>Daten von <%= @user.name%></h1>
+=======
+<br/>
+>>>>>>> dcfc49fbb2baf02d35df87f896abe1721b5c96e1
 
-<%= "Klasse: " + @user.class_level.to_s%> </br>
-<%= "Kontakt: " + @user.contact_info.to_s%> </br>
-<%= "Bewertung: " + @user.likes.to_s%> </br>
+<h1 align="center"><%= @user.name%></h1>
 
-<% if @allowed then %>
-  <%= link_to "Daten bearbeiten", edit_user_path(@user) %> 
-<% end %>
+<br/>
 
-<h2>Angebote</h2>
+<center>
 
-<table border=3 frame=void bgcolor=#CCFFFF>
-  <tr>
-    <th>Angebote</th>
+<table>
+	<tr>
+		<td><%= "Klasse: " %></td> 
+		<td><%= @user.class_level.to_s %></td>
+	</tr>
+	
+	<tr>
+		<td><%= "Kontakt: " %></td> 
+		<td><%=@user.contact_info.to_s%> </td>
+	</tr>
+	<tr>
+		<td><%= "Bewertung: " %></td> 
+		<td><%=@user.likes.to_s%> </td>
+	</tr>
+
 	<% if @allowed then %>
+<<<<<<< HEAD
 	<th>Anfragen</th>
     <th>Löschen?</th>
 	<% end %>
@@ -21,35 +34,78 @@
    <% @user.offers.each do |o| %>
   <tr>
       <td> <%= link_to(o.subject.to_s + ", Klasse " + o.class_level.to_s, offer_path(o.id)) %> </td>
+=======
+	<tr>
+		<td><%= link_to "Daten bearbeiten", edit_user_path(@user) %> </td>
+	</tr>
+<% end %>
+</table>
+>>>>>>> dcfc49fbb2baf02d35df87f896abe1721b5c96e1
 
-      <% if @allowed then %>
-	    <td> <%= link_to "Anfragen anzeigen", appointments_path %> </td>
-        <td><%= link_to "Entfernen", offer_path(o), :method => :delete %></td>
-	  <% end %>
+<br/>
+<br/>
 
-    </tr>
-     <% end %>
-  </table>
-<% if @allowed then %>
-  <%= link_to("Neues Angebot anlegen", new_offer_path(@user))%> 
-  <h2>Eigene Gesuche</h2>
-  <table border=3 frame=void bgcolor=#CCFFFF>
-    <tr>
-      <th>Fach</th>
-      <th>Loeschen?</th>
-    </tr>
-    <% @user.demands.each do |d| %>
-    <tr>
-      <td> <%= d.subject %>  </td>
-      <td><%= link_to "Entfernen", demand_path(d), :method => :delete %></td>
-    </tr>
-    <% end %>
-  </table>
+
+<table>
+	<tr>
+
+		<td align="center" valign="top" style="background-color:#CCCCFF">
+			<h2>Angebote</h2>
+			<br/>
+			<table border=3 frame=void bgcolor=#CCFFFF>
+			<tr>
+				<th>Angebote</th>
+				<% if @allowed then %>
+					<th>Anfragen</th>
+					<th>Loeschen?</th>
+				<% end %>
+			</tr>
+			<% @user.offers.each do |o| %>
+				<tr>
+					<td> <%= link_to(o.subject.to_s + ", Klasse " + o.class_level.to_s, offer_path(o.id)) %> </td>
+
+					<% if @allowed then %>
+						<td> <%= link_to "Anfragen anzeigen", appointments_path %> </td>
+						<td><%= link_to "Entfernen", offer_path(o), :method => :delete %></td>
+					<% end %>
+
+				</tr>
+			<% end %>
+			</table>
+			
+			<% if @allowed then %>
+				<%= link_to("Neues Angebot anlegen", new_offer_path(@user))%>
+		</td>
+		
+		<td width="50"> </td>
+  
+		<td align="center" valign="top" style="background-color:#CCCCFF">  
+			<h2>Eigene Gesuche</h2>
+			<br/>
+			<table border=3 frame=void bgcolor=#CCFFFF>
+				<tr>
+					<th>Fach</th>
+					<th>Loeschen?</th>
+				</tr>
+				
+				<% @user.demands.each do |d| %>
+					<tr>
+						<td> <%= d.subject %>  </td>
+						<td><%= link_to "Entfernen", demand_path(d), :method => :delete %></td>
+					</tr>
+				<% end %>
+			</table>
  
-  <%= link_to("Neues Gesuch anlegen", new_demand_path) %>
- 
-  <h2>Terminvereinbarung zu meinen Gesuchen</h2>
+			<%= link_to("Neues Gesuch anlegen", new_demand_path) %>
+		</td> 
+		
+		<td width="50"> </td>
+		
+		<td align="center" valign="top" style="background-color:#CCCCFF">
+			<h2>Terminvereinbarung zu meinen Gesuchen</h2>
+			<br/>
 
+<<<<<<< HEAD
   <table border=3 frame=void bgcolor=#CCFFFF>
     <tr>
       <th>Fach</th>
@@ -74,7 +130,33 @@
       <td><%= link_to "Entfernen"%> </td>
    </tr>
   <% end %>
+=======
+			<table border=3 frame=void bgcolor=#CCFFFF>
+				<tr>
+					<th>Fach</th>
+					<th>Anbieter</th>
+					<th>Status</th>
+					<th>Bewertung</th>
+					<th>Loeschen?</th>
+				</tr>
+  
+				<% @user.appointments.each do |a| %>
+					<tr>
+						<td></td>
+						<td> <%= link_to(a.offer.user.to_s, users_path(a.offer.user.id)) %> </td>
+						<td></td>
+						<td></td>
+						<td><%= link_to "Entfernen"%> </td>
+					</tr>
+				<% end %>
+>>>>>>> dcfc49fbb2baf02d35df87f896abe1721b5c96e1
 
-  </table>
+			</table>
+		</td>
+  
+  
+	</tr>
+</table
+</center>
 <% end %> 
 
