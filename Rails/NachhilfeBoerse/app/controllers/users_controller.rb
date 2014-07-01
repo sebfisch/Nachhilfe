@@ -50,7 +50,17 @@ class UsersController < ApplicationController
 	def save
 		@user.update_attribute(:class_level, params[:user][:class_level])
 		@user.update_attribute(:contact_info, params[:user][:contact_info])
-		redirect_to users_path(@user)
+		new_password = params[:user][:password]
+		if new_password.length >0 then
+			@user.password =new_password
+			if @user.save then
+				redirect_to users_path(@user)
+			else
+				render :edit
+			end
+		else
+			redirect_to users_path(@user)
+		end
 	end
 
 

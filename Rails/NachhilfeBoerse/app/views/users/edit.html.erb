@@ -5,6 +5,7 @@
 	<%= form_for @user, :url => users_path do |u| %>
 		<%= u.label :Klassenstufe %>:<%= u.text_field :class_level %></br>
 		<%= u.label :Kontaktdaten %>:<%= u.text_field :contact_info %></br>
+		<%= u.label :Neues_Passwort %>:<%= u.text_field :password %></br>
 		<%= u.submit "Speichern" %>
 
 		<ul>
@@ -13,4 +14,7 @@
 		<% end %>
 		</ul>
 	<% end %>
+	
+	
+	
 <% end %>
