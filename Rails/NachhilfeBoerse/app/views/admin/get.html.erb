@@ -45,8 +45,9 @@
 		      <%= link_to "change", change_admin_status_path(user), :method => :patch %>
 			<% end %> 
 		  </td>
+
 		  <td align="center">
-		    <%= link_to "edit", users_path(user) %>
+		    <%= link_to "edit", edit_user_path(user) %>
 		  </td>
 		  	  
         </tr>
@@ -59,15 +60,23 @@
 	<h2>Benutzer neu anlegen</h2>
 
 	<br/>
-	<%= form_for @new_user, :url => admin_path do |f| %>
-		<%= f.text_field :name, :size=>"30", :maxlength=>"30", :placeholder=>"Benutzername" %>
+
+  <%= form_tag admin_path, multipart: true do %>
+  		Name: 
+  		<%= text_field_tag :name %>
+  		
 		<br/>
 		<br/>
-		<%= f.text_field :password, :type=>"password", :size=>"30", :maxlength=>"40", :placeholder=>"Passwort" %>
-		<br/>
-		<br/>
-		<%= f.submit "Save", :style=> "width: 168px; height: 25px" %>
-	<% end %>
-	</center>
+  		Passwort (min. 8 Zeichen):
+  		<%= text_field_tag :password %>
+  		<br/>
+  		<br/>
+  		Benutzer über CSV-Datei importieren (1. Zeile: Kopfzeile, 1. Spalte: Name, 2. Spalte: Passwort):
+  		<br/>
+  		<%= file_field_tag :file %>
+  		<%= submit_tag "Benutzer anlegen" %>
+  <% end %>
+  </center>
+	
 
 <% end %>
