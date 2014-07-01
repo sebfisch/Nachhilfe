@@ -1,5 +1,3 @@
-
-﻿<h1>Daten von <%= @user.name%></h1>
 <br/>
 
 <h1 align="center"><%= @user.name%></h1>
@@ -24,20 +22,11 @@
 	</tr>
 
 	<% if @allowed then %>
-
-	<th>Anfragen</th>
-    <th>Löschen?</th>
-	<% end %>
-  </tr>
-   <% @user.offers.each do |o| %>
-  <tr>
-      <td> <%= link_to(o.subject.to_s + ", Klasse " + o.class_level.to_s, offer_path(o.id)) %> </td>
 	<tr>
 		<td><%= link_to "Daten bearbeiten", edit_user_path(@user) %> </td>
 	</tr>
 <% end %>
 </table>
-
 
 <br/>
 <br/>
@@ -102,32 +91,6 @@
 			<h2>Terminvereinbarung zu meinen Gesuchen</h2>
 			<br/>
 
-
-  <table border=3 frame=void bgcolor=#CCFFFF>
-    <tr>
-      <th>Fach</th>
-      <th>Anbieter</th>
-      <th>Termin bestätigt</th>
-      <th>Bewertung</th>
-      <th>Loeschen?</th>
-    </tr>
-  
-  <% @user.appointments.each do |a| %>
-   <tr>
-      <td> <%= a.offer.subject %> </td>
-      <td> <%= link_to(a.offer.user.name, users_path(a.offer.user.id)) %> </td>
-      <td>
-            <% if a.is_agreed then %>
-              <%= "ja" %>
-            <% else %>
-			  <%= "nein" %>
-			<% end %>
-	   </td>
-      <td></td>
-      <td><%= link_to "Entfernen"%> </td>
-   </tr>
-  <% end %>
-
 			<table border=3 frame=void bgcolor=#CCFFFF>
 				<tr>
 					<th>Fach</th>
@@ -146,7 +109,6 @@
 						<td><%= link_to "Entfernen"%> </td>
 					</tr>
 				<% end %>
-
 
 			</table>
 		</td>
