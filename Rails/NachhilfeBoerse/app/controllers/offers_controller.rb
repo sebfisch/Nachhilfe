@@ -1,16 +1,20 @@
 class OffersController < ApplicationController
-            
+     
+    before_action :redirect_to_login, only: [:edit, :delete, :post, :patch]
+	
     def get
       @offer = Offer.find_by_id(params[:id])
-      
-	  if @offer == nil 
+      if @offer == nil 
 		redirect_to root_path 
 	  end  
 	  
 	end
    
     def edit
-      @offer = Offer.find(params[:id])          
+      @offer = Offer.find_by_id(params[:id])  
+      if @offer == nil 
+		redirect_to root_path 
+	  end  
     end
      
     def patch
@@ -41,4 +45,12 @@ class OffersController < ApplicationController
       offer.save
       redirect_to users_path(offer.user)
     end
+	
+    def redirect_to_login
+	  @offer = Offer.find_by_id(params[:id])
+      if @offer.user != current_user or !@offer.user.is_admin then
+        redirect_to login_path
+      end
+    end
+	
 end
