@@ -15,6 +15,18 @@ class OffersController < ApplicationController
       end
     end    
     
+    def appoint 
+      user = current_user
+      offer = Offer.find(params[:id])
+      app = Appointment.new   
+      app.is_agreed = false
+      app.was_liked = false
+      app.user = user
+      app.offer = offer      
+      app.save
+      redirect_to users_path(current_user)
+    end
+     
      private
      
      def save(offer)      
