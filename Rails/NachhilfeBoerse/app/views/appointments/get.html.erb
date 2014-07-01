@@ -1,0 +1,44 @@
+<br/>
+	<br/>
+<h1 align="center">Übersicht Anfragen</h1>
+<center>
+für <%= link_to current_user.name, users_path(current_user)%>
+
+<br/>
+<br/>
+
+<table border=3 frame=void bgcolor=#CCFFFF align="center">
+    <tr>
+      <th>Fach</th>
+      <th>Klasse</th>
+      <th>Suchender</th>
+      <th>Termin bestätigt?</th>
+      <th></th>
+    </tr>
+  
+  <% current_user.appointments.each do |a| %>
+   <tr>
+      <td align="center"><%= a.offer.subject %></td>
+      <td align="center"> <%= a.offer.class_level %> </td>
+      <td align="center"><%= a.user.name %></td>
+      <td align="center">
+        <% if a.is_agreed then %>
+            <font color="green" style="font-weight:bold"> Ja
+        <% else %>
+            <font color="red" style="font-weight:bold"> Nein
+        <% end %>
+      </td>
+      <td align="center">
+        <% if a.is_agreed then %>
+            <%= link_to "Ablehnen?", agree_path(a),
+                :method => :post %>
+        <% else %>
+            <font color="green">
+                <%= link_to "Annehmen?", agree_path(a),
+                :method => :post %>
+        <% end %> 
+      </td>
+   </tr>
+  <% end %>
+
+</center>

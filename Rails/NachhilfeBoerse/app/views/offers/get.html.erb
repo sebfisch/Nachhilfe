@@ -12,10 +12,23 @@
   <tr>
       <td>Information: </td><td><%= @offer.info %></td>
   </tr>
+  <tr><% if !signed_in? then %>
+  <td><%= link_to "Login", login_path %></td>  
+      <% end %>
   <tr><% if current_user == @offer.user then %>
        <td><%= link_to "bearbeiten", edit_offer_path(@offer) %></td>  
       <% end %>
+
+      <% if signed_in? && @offer.user != current_user then %>
+       <td><%= link_to "Termin anfragen", appoint_path(@offer), :method => :put %><td>
+      <% end %> 
+       </tr>
+  </table>
+  </br>
+  </br>
+
   </tr>
   </table>
   
    <%= link_to "Zum Profil des Anbieters", users_path(@offer.user.id) %>
+
