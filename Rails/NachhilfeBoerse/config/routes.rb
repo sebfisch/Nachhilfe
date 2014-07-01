@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get "offers/:id/edit" => "offers#edit", :as => :edit_offer
   post "offers/:id" => "offers#post" 
   patch "offers/:id" => "offers#patch"
+  put "offers:id/appoint" => "offers#appoint", :as => :appoint
+  
 
   get "login" => "login#get", :as=>:logins
   post "login" => "login#post"
@@ -26,5 +28,9 @@ Rails.application.routes.draw do
 
   get "demands/new" => "demands#get", :as=>:new_demand
   post "results" => "results#post"
+
+  get "appointments" => "appointments#get"
+  post "appointments/:id" => "appointments#agree", :as=>:agree
+
 
 end

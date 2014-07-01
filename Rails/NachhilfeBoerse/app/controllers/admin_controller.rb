@@ -1,4 +1,7 @@
+require 'csv'
 class AdminController < ApplicationController
+	
+
     def get
 	  if current_user != nil then
 	    @is_admin = current_user.is_admin
@@ -9,10 +12,22 @@ class AdminController < ApplicationController
     end
 	
 	def post
-	  name = params[:user][:name]
-	  password = params[:user][:password]
-	  User.new(:name => name, :password => password).save
-	  redirect_to admin_path
+		if params[:name] != nil then
+	  		name = params[:name]
+	  		password = params[:password]
+	  		User.new(:name => name, :password => password).save
+	  	end
+
+	  	if params[:file] != nil then
+	  		file = params[:file]
+	  		CSV.foreach(file.path, headers: true) do |row|
+	  			u=User.new
+				u.name=row[0]
+				u.password=row[1]
+				u.save
+	  		end
+	  	end
+	  	redirect_to admin_path
 	end
 	
 	def change_admin_status

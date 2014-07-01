@@ -1,9 +1,15 @@
 class UsersController < ApplicationController
 	def get
-		if signed_in? then
-			@user = User.find(params[:id])
-		end
-		#offer = Offer.find(params[:user_id])
+	    @user = User.find_by_id(params[:id])
+		if @user == nil then
+		  redirect_to root_path
+		else
+		  if signed_in? && (current_user.id == @user.id || current_user.is_admin) then
+		    @allowed = true
+		  else
+		    @allowed = false
+		  end  
+		end  
 		#appointment = Appointment.find(params[:offer_id])
 	end
 	

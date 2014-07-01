@@ -1,59 +1,82 @@
-﻿<h1>Administration</h1>
+﻿<br/>
+
+<h1 align="center">Administration</h1>
 
 <% if not @is_admin then %>
 
   <p>Diese Seite kann nur von Administratoren aufgerufen werden</p>
-  <%= link_to "weiter", users_path(@actual_user) %>
+  <%= link_to "weiter", root_path %>
 <% else %>
-  <h2>Benutzer</h2>
-  <table>
-	  <tr>
-	  	<th>Admin</th>
-		<th>Name</th>
-		<th>Klassenstufe</th>
-		<th>Kontakt-Infos</th>
-		<th>letzte Aktivität</th>
-		<th>löschen</th>
-		<th>Admin-Status ändern</th>
-		<th>editieren</th>
-	  </tr>
-	  
-	    <% @users.each do |user| %>
+  
+	<center>
+	<br/>
+	<h2>Benutzer</h2>
+	<br/>	
+	
+	<table border="1" style="width:70%">
 		<tr>
-	      <td><% if user.is_admin then%>
-			    <%= "ADMIN" %>
+			<th style="height:30px">Admin</th>
+			<th>Name</th>
+			<th>Klassenstufe</th>
+			<th>Kontakt-Infos</th>
+			<th>letzte Aktivität</th>
+			<th>löschen</th>
+			<th>Admin-Status ändern</th>
+			<th>editieren</th>
+	</tr>
+	
+	<% @users.each do |user| %>
+		<tr>
+	      <td align="center"><% if user.is_admin then%>
+			    <%= "X" %>
 			  <% end %>
 		  </td>
 		  <td><%= user.name  %></td>
-		  <td><%= user.class_level %></td>
+		  <td align="center"><%= user.class_level %></td>
 		  <td><%= user.contact_info %></td>
-		  <td><%= user.last_activity %></td>
-          <td>
+		  <td align="center"><%= user.last_activity %></td>
+          <td align="center">
 		    <% if user.id != 1 then %>
 		      <%= link_to "delete", users_path(user), :method => :delete %>
 			<% end %>   
 		  </td>
-		  <td>
+		  <td align="center">
 		    <% if user.id != 1 then %>
 		      <%= link_to "change", change_admin_status_path(user), :method => :patch %>
 			<% end %> 
 		  </td>
-		  <td>
-		    <%= link_to "edit", users_path(user) %>
+
+		  <td align="center">
+		    <%= link_to "edit", edit_user_path(user) %>
 		  </td>
 		  	  
         </tr>
-       <% end %>	  
+       <% end %>
+	
 	</table>
+	
+	<br/>
+	
+	<h2>Benutzer neu anlegen</h2>
 
-  <h2>Benutzer neu anlegen</h2>
+	<br/>
 
-  <%= form_for @new_user, :url => admin_path do |f| %>
-	<%= f.label :name %> <%= f.text_field :name %>
-	</br>
-	<%= f.label :password %> <%= f.text_field :password %>
-	</br>
-	<%= f.submit "Save" %>
+  <%= form_tag admin_path, multipart: true do %>
+  		Name: 
+  		<%= text_field_tag :name %>
+  		
+		<br/>
+		<br/>
+  		Passwort (min. 8 Zeichen):
+  		<%= text_field_tag :password %>
+  		<br/>
+  		<br/>
+  		Benutzer über CSV-Datei importieren (1. Zeile: Kopfzeile, 1. Spalte: Name, 2. Spalte: Passwort):
+  		<br/>
+  		<%= file_field_tag :file %>
+  		<%= submit_tag "Benutzer anlegen" %>
   <% end %>
+  </center>
+	
 
 <% end %>

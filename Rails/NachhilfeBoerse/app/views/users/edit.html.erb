@@ -14,7 +14,10 @@
 		<% end %>
 		</ul>
 	<% end %>
+
 	
-	
-	
+
+<% else %>
+  <h2>Sie haben keine Berechtigung für diese Seite</h2>	
+  <%= link_to "weiter zur Startseite", root_path %> 
 <% end %>
