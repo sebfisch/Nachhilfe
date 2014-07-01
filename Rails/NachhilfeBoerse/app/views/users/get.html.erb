@@ -8,35 +8,6 @@
 
 <center>
 
-<table>
-	<tr>
-		<td><%= "Klasse: " %></td> 
-		<td><%= @user.class_level.to_s %></td>
-	</tr>
-	
-	<tr>
-		<td><%= "Kontakt: " %></td> 
-		<td><%=@user.contact_info.to_s%> </td>
-	</tr>
-	<tr>
-		<td><%= "Bewertung: " %></td> 
-		<td><%=@user.likes.to_s%> </td>
-	</tr>
-
-	<% if @allowed then %>
-
-	<th>Anfragen</th>
-    <th>Löschen?</th>
-	<% end %>
-  </tr>
-   <% @user.offers.each do |o| %>
-  <tr>
-      <td> <%= link_to(o.subject.to_s + ", Klasse " + o.class_level.to_s, offer_path(o.id)) %> </td>
-	<tr>
-		<td><%= link_to "Daten bearbeiten", edit_user_path(@user) %> </td>
-	</tr>
-<% end %>
-</table>
 
 
 <br/>
