@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 ﻿<h1>Daten von <%= @user.name%></h1>
-=======
 <br/>
->>>>>>> dcfc49fbb2baf02d35df87f896abe1721b5c96e1
 
 <h1 align="center"><%= @user.name%></h1>
 
@@ -26,7 +24,7 @@
 	</tr>
 
 	<% if @allowed then %>
-<<<<<<< HEAD
+
 	<th>Anfragen</th>
     <th>Löschen?</th>
 	<% end %>
@@ -34,13 +32,12 @@
    <% @user.offers.each do |o| %>
   <tr>
       <td> <%= link_to(o.subject.to_s + ", Klasse " + o.class_level.to_s, offer_path(o.id)) %> </td>
-=======
 	<tr>
 		<td><%= link_to "Daten bearbeiten", edit_user_path(@user) %> </td>
 	</tr>
 <% end %>
 </table>
->>>>>>> dcfc49fbb2baf02d35df87f896abe1721b5c96e1
+
 
 <br/>
 <br/>
@@ -105,7 +102,7 @@
 			<h2>Terminvereinbarung zu meinen Gesuchen</h2>
 			<br/>
 
-<<<<<<< HEAD
+
   <table border=3 frame=void bgcolor=#CCFFFF>
     <tr>
       <th>Fach</th>
@@ -130,7 +127,7 @@
       <td><%= link_to "Entfernen"%> </td>
    </tr>
   <% end %>
-=======
+
 			<table border=3 frame=void bgcolor=#CCFFFF>
 				<tr>
 					<th>Fach</th>
@@ -149,7 +146,7 @@
 						<td><%= link_to "Entfernen"%> </td>
 					</tr>
 				<% end %>
->>>>>>> dcfc49fbb2baf02d35df87f896abe1721b5c96e1
+
 
 			</table>
 		</td>
