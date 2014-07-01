@@ -48,12 +48,18 @@
 
   <h2>Benutzer neu anlegen</h2>
 
-  <%= form_for @new_user, :url => admin_path do |f| %>
-	<%= f.label :name %> <%= f.text_field :name %>
-	</br>
-	<%= f.label :password %> <%= f.text_field :password %>
-	</br>
-	<%= f.submit "Save" %>
+  <%= form_tag admin_path, multipart: true do %>
+  		Name: 
+  		<%= text_field_tag :name %>
+  		</br>
+  		Passwort (min. 8 Zeichen):
+  		<%= text_field_tag :password %>
+  		</br>
+  		</br>
+  		Benutzer über CSV-Datei importieren (1. Zeile: Kopfzeile, 1. Spalte: Name, 2. Spalte: Passwort):
+  		</br>
+  		<%= file_field_tag :file %>
+  		<%= submit_tag "Benutzer anlegen" %>
   <% end %>
-
+	
 <% end %>
