@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
 	def get
+		@appointments = Offer.find(params[:id]).appointments
 	end
 	
 	def post
@@ -9,6 +10,6 @@ class AppointmentsController < ApplicationController
 		a = Appointment.find(params[:id])
 		a.is_agreed = !a.is_agreed
 		a.save
-		redirect_to appointments_path
+		redirect_to appointments_path(a.offer_id)
 	end
 end

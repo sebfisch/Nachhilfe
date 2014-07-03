@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get "demands/new" => "demands#get", :as=>:new_demand
   post "results" => "results#post"
 
-  get "appointments" => "appointments#get"
+  get "appointments/:id" => "appointments#get", :as => :appointments
   post "appointments/:id" => "appointments#agree", :as=>:agree
 
 

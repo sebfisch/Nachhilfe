@@ -16,7 +16,7 @@ für <%= link_to current_user.name, users_path(current_user)%>
       <th></th>
     </tr>
   
-  <% current_user.appointments.each do |a| %>
+  <% @appointments.each do |a| %>
    <tr>
       <td align="center"><%= a.offer.subject %></td>
       <td align="center"> <%= a.offer.class_level %> </td>

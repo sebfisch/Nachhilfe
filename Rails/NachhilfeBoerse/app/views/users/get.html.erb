@@ -51,7 +51,7 @@
 					<td> <%= link_to(o.subject.to_s + ", Klasse " + o.class_level.to_s, offer_path(o.id)) %> </td>
 
 					<% if @allowed then %>
-						<td> <%= link_to "Anfragen anzeigen", appointments_path %> </td>
+						<td> <%= link_to "Anfragen anzeigen", appointments_path(o.id) %> </td>
 						<td><%= link_to "Entfernen", offer_path(o), :method => :delete %></td>
 					<% end %>
 
