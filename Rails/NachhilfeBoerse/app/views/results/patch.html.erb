@@ -1,0 +1,41 @@
+<br/>
+<br/>
+<h1 align="center">Suchergebnisse</h1>
+<center>
+  <br/>
+  <br/>
+  zur Anfrage nach dem Fach 
+    <% if @subject_demand == "" then %>
+        <b>(nicht angegeben)</b>
+    <% else %>
+        <b><%= @subject_demand %></b> 
+    <% end %>
+  in der Klassenstufe 
+    <% if @class_demand == "" then %>
+        <b>(nicht angegeben)</b>
+    <% else %>
+        <b><%= @class_demand %></b> 
+    <% end %> 
+  gibt es folgende Angebote:
+  <br/>
+  <br/>
+
+  <table>
+    <tr bgcolor="grey">
+      <td>Fach</td> <td>Klassenstufe</td><td>Anbieter</td><td bgcolor="white"></td>
+    </tr>
+    <tr>
+    <% if @offer.size == 0 then %>
+        <td colspan="4"><font color="red">Keine passenden Angebote</td>
+      </tr>
+    <% else %>  
+      <% @offer.each do |o| %>
+          <td><%=o.subject %> </td>
+          <td><%=o.class_level %></td>
+          <td><%=o.user.name %></td>
+          <td><%= link_to"Angebot anzeigen",offer_path(o),:method=>:get%></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</center>
