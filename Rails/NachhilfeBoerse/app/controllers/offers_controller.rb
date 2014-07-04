@@ -7,8 +7,13 @@ class OffersController < ApplicationController
       if @offer == nil 
 		redirect_to root_path 
 	  end  
-	  
 	end
+   
+    def delete
+      offer = Offer.find_by_id(params[:id])
+	  offer.destroy
+	  redirect_to user_path(current_user)
+    end
    
     def edit
       @offer = Offer.find_by_id(params[:id])  

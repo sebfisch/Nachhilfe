@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "offers/:id/edit" => "offers#edit", :as => :edit_offer
   post "offers/:id" => "offers#post" 
   patch "offers/:id" => "offers#patch"
+  delete "offers/:id" => "offers#delete"
   put "offers:id/appoint" => "offers#appoint", :as => :appoint
   
 
