@@ -29,7 +29,9 @@ Rails.application.routes.draw do
 
   get "demands/new" => "demands#get", :as=>:new_demand
   post "results" => "results#post"
-
+  patch "results" => "results#patch"
+  
+  delete "appointments/:id" => "appointments#delete_app"
   get "appointments/:id" => "appointments#get", :as => :appointments
   post "appointments/:id" => "appointments#agree", :as=>:agree
 

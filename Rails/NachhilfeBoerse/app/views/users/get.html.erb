@@ -71,12 +71,14 @@
 			<table border=3 frame=void bgcolor=#CCFFFF>
 				<tr>
 					<th>Fach</th>
+					<th>Klasse</th>
 					<th>Loeschen?</th>
 				</tr>
 				
 				<% @user.demands.each do |d| %>
 					<tr>
-						<td> <%= d.subject %>  </td>
+						<td> <%= link_to d.subject, results_path(:params1 => d.subject, :params2 => d.class_level), :method => :patch %>  </td>
+						<td> <%= d.class_level %>  </td>
 						<td><%= link_to "Entfernen", demand_path(d), :method => :delete %></td>
 					</tr>
 				<% end %>
@@ -102,6 +104,7 @@
 				</tr>
   
 				<% @user.appointments.each do |a| %>
+				  <% if a.offer != nil then %>
 					<tr>
 						<td>  <%= a.offer.subject %> </td>
 						<td>  <%= a.offer.class_level %> </td>
@@ -114,8 +117,9 @@
 						    <% end %>
 						</td>
 						<td></td>
-						<td><%= link_to "Entfernen", offer_path(a), :method => :delete %> </td>
+						<td><%= link_to "Entfernen", appointments_path(a), :method => :delete %> </td>
 					</tr>
+				  <% end %>
 				<% end %>
 
 			</table>
