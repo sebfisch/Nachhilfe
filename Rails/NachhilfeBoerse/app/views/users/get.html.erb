@@ -88,12 +88,13 @@
 		<td width="50"> </td>
 		
 		<td align="center" valign="top" style="background-color:#CCCCFF">
-			<h2>Terminvereinbarung zu meinen Gesuchen</h2>
+			<h2>Terminanfragen</h2>
 			<br/>
 
 			<table border=3 frame=void bgcolor=#CCFFFF>
 				<tr>
 					<th>Fach</th>
+					<th>Klasse</th>
 					<th>Anbieter</th>
 					<th>Termin bestätigt</th>
 					<th>Bewertung</th>
@@ -103,6 +104,7 @@
 				<% @user.appointments.each do |a| %>
 					<tr>
 						<td>  <%= a.offer.subject %> </td>
+						<td>  <%= a.offer.class_level %> </td>
 						<td> <%= link_to(a.offer.user.name, users_path(a.offer.user.id)) %> </td>
 						<td>  
 						    <% if a.is_agreed then %> 
