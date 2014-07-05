@@ -7,7 +7,7 @@ class AdminController < ApplicationController
 	  end	
 	  @users = User.all
 	  @admin = User.first
-	  @users_not_first = User.where.not(id: 1).order(:last_activity).reverse_order
+	  @users_not_first = User.all.offset(2).order(:last_activity).reverse_order
 	  @actual_user = current_user
 	  @new_user = User.new
     end
