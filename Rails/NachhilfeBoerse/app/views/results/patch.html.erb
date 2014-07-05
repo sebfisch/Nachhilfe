@@ -25,17 +25,15 @@
       <td>Fach</td> <td>Klassenstufe</td><td>Anbieter</td><td bgcolor="white"></td>
     </tr>
     <tr>
-    <% if @offer.size == 0 then %>
-        <td colspan="4"><font color="red">Keine passenden Angebote</td>
-      </tr>
-    <% else %>  
+    <% if @offer.size != 0 then %>  
       <% @offer.each do |o| %>
           <td><%=o.subject %> </td>
           <td><%=o.class_level %></td>
           <td><%=o.user.name %></td>
           <td><%= link_to"Angebot anzeigen",offer_path(o),:method=>:get%></td>
-        </tr>
+      <% else %>
+          <td colspan="4"><font color="red">Keine passenden Angebote</td>
       <% end %>
-    <% end %>
+	  </tr>
   </table>
 </center>
