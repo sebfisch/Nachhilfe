@@ -1,12 +1,13 @@
 require 'csv'
 class AdminController < ApplicationController
 	
-
     def get
 	  if current_user != nil then
 	    @is_admin = current_user.is_admin
 	  end	
 	  @users = User.all
+	  @admin = User.first
+	  @users_not_first = User.all.offset(2).order(:last_activity).reverse_order
 	  @actual_user = current_user
 	  @new_user = User.new
     end

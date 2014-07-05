@@ -28,7 +28,7 @@
     <% if @offer.size != 0 then %>  
       <% @offer.each do |o| %>
           <td><%=o.subject %> </td>
-          <td><%=o.class_level %></td>
+          <td align="center"><%=o.class_level %></td>
           <td><%=o.user.name %></td>
           <td><%= link_to"Angebot anzeigen",offer_path(o),:method=>:get%></td>
 	  </tr>

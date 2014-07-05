@@ -3,12 +3,10 @@
 <h1 align="center">Administration</h1>
 
 <% if not @is_admin then %>
-
   <p>Diese Seite kann nur von Administratoren aufgerufen werden</p>
   <%= link_to "weiter", root_path %>
 <% else %>
-  
-	<center>
+  	<center>
 	<br/>
 	<h2>Benutzer</h2>
 	<br/>	
@@ -24,31 +22,34 @@
 			<th>Admin-Status ändern</th>
 			<th>editieren</th>
 	</tr>
-	
-	<% @users.each do |user| %>
+	<% user = @admin %>
 		<tr>
-	      <td align="center"><% if user.is_admin then%>
-			    <%= "X" %>
-			  <% end %>
+	      <td align="center">X
 		  </td>
-		  <td><%= user.name  %></td>
+		  <td align="center"><%= user.name  %></td>
 		  <td align="center"><%= user.class_level %></td>
-		  <td><%= user.contact_info %></td>
-		  <td align="center"><%= user.last_activity %></td>
+		  <td align="center"><%= user.contact_info %></td>
+		  <td align="center"><%= user.last_activity.to_s.sub(/(\w+)-(\w+)-(\w+)/, '\\3.\\2.\\1') %></td>
+          <td></td>
+		  <td></td>
           <td align="center">
-		    <% if user.id != 1 then %>
-		      <%= link_to "delete", users_path(user), :method => :delete %>
-			<% end %>   
-		  </td>
-		  <td align="center">
-		    <% if user.id != 1 then %>
-		      <%= link_to "change", change_admin_status_path(user), :method => :patch %>
-			<% end %> 
-		  </td>
-
-		  <td align="center">
 		    <%= link_to "edit", edit_user_path(user) %>
 		  </td>
+		  	  
+        </tr>
+  	<% @users_not_first.each do |user| %>
+		<tr>
+	      <td align="center"><% if user.is_admin then%>
+			                   <%= "X" %>
+			                 <% end %>
+		  </td>
+		  <td align="center"><%= user.name  %></td>
+		  <td align="center"><%= user.class_level %></td>
+		  <td align="center"><%= user.contact_info %></td>
+		  <td align="center"><%= user.last_activity.to_s.sub(/(\w+)-(\w+)-(\w+)/, '\\3.\\2.\\1') %></td>
+          <td align="center"><%= link_to "delete", users_path(user), :method => :delete %></td>
+		  <td align="center"><%= link_to "change", change_admin_status_path(user), :method => :patch %></td>
+		  <td align="center"><%= link_to "edit", edit_user_path(user) %></td>
 		  	  
         </tr>
        <% end %>
@@ -78,5 +79,4 @@
   <% end %>
   </center>
 	
-
 <% end %>
