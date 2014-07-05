@@ -31,9 +31,11 @@
           <td align="center"><%=o.class_level %></td>
           <td><%=o.user.name %></td>
           <td><%= link_to"Angebot anzeigen",offer_path(o),:method=>:get%></td>
+		</tr>
+		<% end %>
       <% else %>
           <td colspan="4"><font color="red">Keine passenden Angebote</td>
+		</tr>
       <% end %>
-	  </tr>
   </table>
 </center>
