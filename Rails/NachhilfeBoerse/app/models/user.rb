@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-    has_many :demands
-    has_many :offers
-    has_many :appointments
+    has_many :demands, :dependent => :destroy
+    has_many :offers, :dependent => :destroy
+    has_many :appointments, :dependent => :destroy
     
     
     validates :name,
