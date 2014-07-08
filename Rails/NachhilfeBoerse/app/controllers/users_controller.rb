@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 	end
 	
 	def delete_offer
-		offer = Offer.find_by(params[:id])
+		offer = Offer.find(params[:id])
 		user = offer.user
 		offer.destroy
 		redirect_to users_path(current_user)
